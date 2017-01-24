@@ -7,17 +7,20 @@
    </section>
 
    <section class="section-border" v-show="whethershow">
-   	<input type="text" name="search-text" class="search-text" placeholder="Search what you want to know..."
+   	<input type="text" name="search-text" class="search-text" placeholder="Input,Enter and Search.."
    	       v-model="searchkey" @keyup.enter="searchbykey">
    </section>
 
    <section class="section-result" v-show="!whethershow"> 
-     <ul id="resultList">
-       <li v-for="result in results"></li>
+     <ul id="resultList" class="resultList">
+       <li v-for="result in results" class="result">
+       <a :href="result.url" target="_blank"> 
+       <span class="title">{{result.title}} :</span>
+       <br> 
+       <span class="extract">{{result.extract}}</span></a>
+       </li>
      </ul>
    </section>
-
-  <button id="test" >Click</button>
 
    </div>
 </template>
@@ -28,6 +31,9 @@
 // window.jQuery = $;
 import jQuery from "jquery"
 var $ = window.$ = window.jQuery =jQuery
+
+var api = "https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=";
+var cb = '&callback=JSON_CALLBACK';
 
 export default {
   name: 'WikipediaViewer',
@@ -41,6 +47,7 @@ export default {
     searchkey:"",
     searchwindow:"true",
     results:[],
+    baseUrl:"https://en.wikipedia.org/wiki/?curid="
     };
   },
 
@@ -55,20 +62,33 @@ export default {
     searchbykey() {
       console.log("==searchbykey==");
       console.log(this.searchkey.trim());
-    }
-  },
-
- //  created: function () {
- // }
-
-   mounted:function () {
-      $("#test").click(()=> {
-        console.log("jquery-click");
-        this.results.push("1");
+      var key = this.searchkey.trim();
+      if(!key){
+        console.log("==searchbykey--null value==");
+        return;
+      }
+      
+      $.ajax({
+        url: api+key+cb,
+        dataType: "jsonp",
+        //jsonpCallback:"jsonCallback"
+      })
+      .done(res=>{
+        // var that = this;
+        Object.keys(res.query.pages).map(index=>{
+          console.log(res.query.pages[index]);
+          res.query.pages[index].url = this.baseUrl+res.query.pages[index].pageid;
+          console.log(res.query.pages[index].url);
+          this.results.push(res.query.pages[index]);
+          // that.results.push(res.query.pages[index]);
+        });
         console.log(this.results);
       });
- }
+    }
+  }
+
 }
+
 
 </script>
 
@@ -122,9 +142,41 @@ export default {
 .search-text{
 	text-align: center;
 	font-size: 2.5rem; 
-    font-family: 'Arsenal', sans-serif;
+  font-family: 'Arsenal', sans-serif;
 	font-family: 'Cormorant', serif;
 	color: #fff;
+}
+
+.resultList{
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.result{
+  border-top:0.7rem solid rgba(85, 24, 121, 0.92); /*rgba(245, 76, 70, 0.94)*/
+  background-color: rgba(215, 213, 213, 0.27);
+  list-style: none;
+  margin-bottom: 1.5rem;
+  padding:0.5rem;
+  border-radius: 0.3rem;
+}
+
+.result .title{
+  display: inline-block;
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+  color:#4D606E;
+}
+
+.resultList .result a{
+  text-decoration: none;
+}
+
+.result .extract{
+  font-size: 1.3rem;
+  color:#6c7073;
 }
 
 </style>
