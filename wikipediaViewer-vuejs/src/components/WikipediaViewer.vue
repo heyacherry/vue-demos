@@ -11,21 +11,14 @@
    	       v-model="searchkey" @keyup.enter="searchbykey">
    </section>
 
-   <section class="section-result" v-show="!whethershow"> 
-     <ul id="resultList" class="resultList">
-       <li v-for="result in results" class="result">
-       <a :href="result.url" target="_blank"> 
-       <span class="title">{{result.title}} :</span>
-       <br> 
-       <span class="extract">{{result.extract}}</span></a>
-       </li>
-     </ul>
-   </section>
+   <!--child component:bind the val and then props-->
+   <search-result :show="!whethershow" :results="results"></search-result>
 
    </div>
 </template>
 
 <script>
+import SearchResult from "./SearchResult.vue";
 // var $ = require('jquery');
 /*Expose jQuery to the global object*/
 // window.jQuery = $;
@@ -39,7 +32,8 @@ export default {
   name: 'WikipediaViewer',
 
   components: {
-    $
+    $,
+    SearchResult
   },
 
   data () {
@@ -144,39 +138,7 @@ export default {
 	font-size: 2.5rem; 
   font-family: 'Arsenal', sans-serif;
 	font-family: 'Cormorant', serif;
-	color: #fff;
 }
 
-.resultList{
-  width: 80%;
-  height: auto;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.result{
-  border-top:0.7rem solid rgba(85, 24, 121, 0.92); /*rgba(245, 76, 70, 0.94)*/
-  background-color: rgba(215, 213, 213, 0.27);
-  list-style: none;
-  margin-bottom: 1.5rem;
-  padding:0.5rem;
-  border-radius: 0.3rem;
-}
-
-.result .title{
-  display: inline-block;
-  font-size: 1.6rem;
-  margin-bottom: 0.4rem;
-  color:#4D606E;
-}
-
-.resultList .result a{
-  text-decoration: none;
-}
-
-.result .extract{
-  font-size: 1.3rem;
-  color:#6c7073;
-}
 
 </style>
