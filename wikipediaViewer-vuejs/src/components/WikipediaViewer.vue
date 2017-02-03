@@ -9,6 +9,7 @@
    <section class="section-border" v-show="whethershow">
    	<input type="text" name="search-text" class="search-text" placeholder="Input,Enter and Search.."
    	       v-model="searchkey" @keyup.enter="searchbykey">
+    
    </section>
 
    <!--child component:bind the val and then props-->
@@ -19,6 +20,7 @@
 
 <script>
 import SearchResult from "./SearchResult.vue";
+
 // var $ = require('jquery');
 /*Expose jQuery to the global object*/
 // window.jQuery = $;
