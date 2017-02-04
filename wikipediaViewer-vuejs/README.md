@@ -6,7 +6,7 @@
 >  -Yuo can search Wikipedia entries in a search box and see the results.
 
 # demo
-<img src="./img/wikipedia-viewer.gif" alt="wikipedia-viewer.vuejs-demo">
+<img src="./img/wikipedia-viewer.gif" alt="wikipedia-viewer.vuejs-demo" width="460px" height="auto">
 
 
 ## Build Setup
