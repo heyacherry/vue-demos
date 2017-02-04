@@ -1,5 +1,5 @@
 <template>
-   <section class="section-result" v-show="show"> 
+   <section class="section-result"> 
      <ul id="resultList" class="resultList">
        <li v-for="result in results" class="result">
        <a :href="result.url" target="_blank"> 
@@ -15,7 +15,7 @@
 export default {
 
   name: "SearchResult",
-  props: ["results","show"],
+  props: ["results"],
 
   data () {
     return {
@@ -40,10 +40,10 @@ export default {
 }
 
 .result{
-  border-top:0.7rem solid rgba(85, 24, 121, 0.92); /*rgba(245, 76, 70, 0.94)*/
+  border-top:0.8rem solid rgba(85, 24, 121, 0.92); /*rgba(245, 76, 70, 0.94)*/
   background-color: rgba(223, 220, 220, 0.27);
   list-style: none;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
   padding:0.8rem;
   border-radius: 0.3rem;
 }
@@ -61,7 +61,7 @@ export default {
 
 .result .extract{
   font-size: 1.3rem;
-  color:#6c7073;
+  color:#626568;
 }
 
 </style>

@@ -26,7 +26,12 @@ export default {
 <style>
 
 html{
-   font-size:62.5%;  /* =10px */
+   font-size:62.5%;  /* =10px Responsive design*/
+}
+
+body{
+   margin:8px 0;
+  
 }
 
 #app {

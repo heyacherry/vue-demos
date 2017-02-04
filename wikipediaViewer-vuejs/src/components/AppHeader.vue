@@ -1,7 +1,7 @@
 <template>
 	 <header>
       <h1>Wikipedia Viewport</h1>
-      <span class="author">BY <a href="https://www.freecodecamp.com/caiyiliang" target="_blank">CaiYiLiang</a></span>
+      <span class="author">BY <a href="https://github.com/CaiYiLiang" target="_blank">CaiYiLiang</a></span>
     </header>
 </template>
 
