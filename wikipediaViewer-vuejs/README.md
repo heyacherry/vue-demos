@@ -5,8 +5,13 @@
 >  -Yuo can click a button to see a random Wikipedia entry.
 >  -Yuo can search Wikipedia entries in a search box and see the results.
 
+Grade that this demo has been merged into the project :<a href="https://github.com/vuejs/awesome-vue">awesome-vue</a>:yum:
+And also here is another vue demo <a href="https://github.com/CaiYiLiang/simply-calculator-vuejs">simply-calculator-vuejs</a> ,which is merged into the project :<a href="https://github.com/vuejs/awesome-vue">awesome-vue</a>:yum:
+
+
 # demo
 <img src="./img/wikipedia-viewer.gif" alt="wikipedia-viewer.vuejs-demo">
+
 
 
 ## Build Setup
