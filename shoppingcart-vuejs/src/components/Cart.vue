@@ -4,7 +4,7 @@
     <div class="title">Your Cart</div>
 
     <div class="cart-title-img">
-    <el-badge :value="12" class="cart-quantity">
+    <el-badge :value="cartQuantity" class="cart-quantity">
     <img src="../../static/img/cart.png">
     </el-badge>
     </div>
@@ -44,7 +44,8 @@ export default {
   },
   computed: mapGetters({
     cartList: 'getAddedProducts',
-    cartAmount: 'getCartAmount'
+    cartQuantity: 'getTotalQuantity',
+    cartAmount: 'getTotalPrice'
   })
 }
 </script>
@@ -82,7 +83,7 @@ export default {
 }
 
 .cart-title-img img{
-	width: 3.5rem;
+	width: 4rem;
 }
 
 .cart-items{

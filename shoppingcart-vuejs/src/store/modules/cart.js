@@ -6,7 +6,9 @@ const state = {
 }
 
 const getters = {
-  getAddedProducts: state => state.added
+  getAddedProducts: state => state.added,
+  getTotalQuantity: state => state.added.length > 0 ? state.added.map(addedProduct => addedProduct.quantity).reduce((prev, curr) => prev + curr, 0) : 0,
+  getTotalPrice: state => state.added.length > 0 ? state.added.map(addedProduct => addedProduct.price).reduce((prev, curr) => prev + curr, 0) : 0
 }
 
 const mutations = {
@@ -20,9 +22,7 @@ const mutations = {
         'quantity': 1,
         'price': product.price
       })
-    } else {
-      record.quantity++
-    }
+    } else { record.quantity++ }
   }
 }
 
