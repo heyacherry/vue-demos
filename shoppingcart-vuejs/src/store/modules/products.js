@@ -26,6 +26,11 @@ const mutations = {
     state.all.find((p) => p.id === product.id).inventory--
     console.log('==types.ADD_TO_CART==')
     console.log(state)
+  },
+
+  [types.DELETE_PRODUCT] (state, productTitle) {
+    console.log(' where:product.js ')
+    state.all.find((p) => p.title === productTitle).inventory++
   }
 }
 

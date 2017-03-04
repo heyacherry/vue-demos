@@ -1,10 +1,10 @@
 <template>
     <section class="main">
 		<el-row type="flex" class="row-bg" justify="center">
-    <el-col :span="12">
+    <el-col :xs="11" :sm="13" :md="13" :lg="12">
       <product></product>
     </el-col>
-    <el-col :span="8" class="bg-purple">
+    <el-col :xs="13" :sm="10" :md="9" :lg="8">
       <cart></cart>
     </el-col>
     </el-row>
@@ -30,7 +30,7 @@ export default{
 }
 
 .main .el-col{
-   border: 1px solid green;
+  
 }
 
 .bg-purple {

@@ -11,7 +11,7 @@
     </div>
 
     <div v-show="cartList.length===0" class="cart-items">
-    	<span>Your cart is empty!!</span>
+    	<span class="empty-cart">Sorry, your cart is empty!!</span>
     </div>
 
     <div v-show="cartList.length!==0" class="cart-items">
@@ -24,8 +24,11 @@
          <el-button size="small" type="danger"
           @click="deleteItem(scope.row)" icon="minus"></el-button>
          </template>
-    </el-table-column>
+         </el-table-column>
          </el-table>
+
+         <div class="cart-price">Total: $ {{ cartAmount }}</div>
+         <el-button type="danger" class="pay">PAY !</el-button>
     </div>
   </div>
 	
@@ -36,10 +39,9 @@ import { mapGetters } from 'vuex'
 
 export default {
   methods: {
-    deleteItem (id) {
-      console.log(id)
-      console.log(id.id)
-      console.log(id.title)
+    deleteItem ({ title }) {
+      // console.log(title)
+      this.$store.commit('DELETE_PRODUCT', title) // commit the mutation directly
     }
   },
   computed: mapGetters({
@@ -52,16 +54,16 @@ export default {
 
 <style>
 .cartList{
-	margin: 1rem auto;
+	margin: 2.8rem auto;
 	width: 100%;
-	border: 1px solid green;
+  background-color: #eef1f6;
+  border-radius: 10px;
 }
 
 .cart-title {
-	height: 5rem;
+	height: 4.5rem;
 	width: 100%;
 	vertical-align: middle;
-	border: 1px solid red;
 }
 
 .cart-title .title{
@@ -71,12 +73,12 @@ export default {
 	display: inline-block;
 	text-align: right;
 	float: left;
-	border: 1px solid yellow;
+  margin-top: 1rem;
 }
 
 .cart-title-img{
-	border: 1px solid blue;
 	display: inline-block;
+  margin-top: 1rem;
 	width: 38%;
 	height: 100%;
 	float: right;
@@ -88,18 +90,42 @@ export default {
 
 .cart-items{
 	margin: 1rem auto;
-	height: 50rem;
+	height: 35rem;
 	width: 100%;
 	text-align: left;
-	border:1px solid blue;
 }
 
-.cart-items .el-table{
+.cart-items .empty-cart{
+  display: inline-block;
+  width: 90%;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 5rem;
+}
+
+.cart-items .el-table {
 	width: 95%;
 	margin: 1rem auto;
 	min-height: 25rem;
-	border:1px solid pink;
 }
+
+.cart-items .cart-price ,
+.cart-items .pay{
+  display: inline-block;
+}
+
+.cart-items .cart-price {
+	width: 50%;
+	margin: 1.5rem auto;
+	height: 3rem;
+  text-align: center;
+	font-size: 2rem;
+}
+
+.cart-items .pay{
+  width: 30%;
+}
+
 
 
 </style>
