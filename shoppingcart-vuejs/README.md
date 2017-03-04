@@ -3,7 +3,7 @@
 > A vue2.x project - shopping cart
 
 # demo
-<img src="./static/img/shopping-cart.gif" alt="shopping-cart.vuejs-demo" width="460px" height="auto">
+<img src="./static/img/shopping-cart.gif" alt="shopping-cart.vuejs-demo" width="680px" height="auto">
 
 
 ## Build Setup
