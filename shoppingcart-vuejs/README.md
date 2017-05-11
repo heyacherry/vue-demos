@@ -25,9 +25,9 @@ npm run build
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-#todo item
+## todo item
 - optimize the demo with vue-router 
 - optimize the demo with vue-transition effect  <br>
 
-~(≧▽≦)/~  如果有那么一丁点儿喜欢 请随手🌟~(≧▽≦)/~啦啦啦 <br>
-~(≧▽≦)/~  Encourage me a start🌟 if you like it~(≧▽≦)/
+٩(๑>◡<๑)۶  如果有那么一丁点儿喜欢 请随手🌟ヾ(✿ﾟ▽ﾟ)ノ <br>
+٩(๑>◡<๑)۶  Encourage me a start🌟 if you like itヾ(✿ﾟ▽ﾟ)ノ
