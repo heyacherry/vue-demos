@@ -9,6 +9,7 @@ This is the repo for vue2.x-demos
 
 <br>
 <a href="https://github.com/CaiYiLiang/vue-demos/tree/master/wikipediaViewer-vuejs" target="_blank">vue-ajax-wikipedia-viewer | 利用vue2.0实现简单页面 </a>
+
 - A wikipedia viewer built with vue2.x ,vue-router,vue-cli(webpack-simple) and ajax(jsonp) 
 - This demo has been merged into the project : <a href="https://github.com/vuejs/awesome-vue">awesome-vue</a>😋
 
